@@ -1,56 +1,31 @@
+// Задача 1
+fun rounderUp(num : Int ) : String {
+    if (num < 1000) {
+        return num.toString()
+    }
+    return (num/1000).toString() + "K"
+}
+
+// Задача 2
+fun yearsEnding (year : Int) : String {
+    val lastTwo = year % 100
+    val lastOne = year % 10
+    return when {
+        lastTwo in 11..14 -> "$year лет"
+        lastOne == 1 -> "$year год"
+        lastOne in 2..4 -> "$year года"
+        else -> "$year лет"
+    }
+}
+
 fun main() {
-    // Задание 1
-    println("Иван")
-    println(35)
-    println(true)
+    // Задача 1
+    println(rounderUp(1234))
+    println(rounderUp(123))
+    println(rounderUp(12345))
 
-    // Задание 2
-    val integer: Int = 5
-    val letter: Char = 'F'
-    val greeting: String = "Привет"
-    val decimal: Double = 90.2
-    val constant: Int = 67
-    println(greeting)
-    
-    // Задание 3
-    fun numSplitter() {
-        print("Четырёхзначное число: ")
-        var number = readLine()?.toInt() ?: 0
-        while (number < 1000 || number > 9999) {
-            println("Число не четырёхзначное")
-            number = readLine()?.toInt() ?: 0
-        }
-        val thousands = number / 1000
-        val hundreds = (number % 1000) / 100
-        val tens = (number % 100) / 10
-        val units = number % 10
-        println("$thousands, $hundreds, $tens, $units")
-    }
-    numSplitter()
-
-    // Задание 4
-    val totalDays = 2642
-    val years = totalDays / 365
-    val remainingDays = totalDays % 365
-    val weeks = remainingDays / 7
-    val days = remainingDays % 7
-    println("Лет: $years, недель: $weeks, дней: $days")
-
-    // Задание 5
-    fun mathFun() {
-        print("Число: ")
-        val n = readLine()?.toInt() ?: 0
-        println("$n${n * 2}")
-    }
-    mathFun()
-
-    // Задание 6
-    fun greeting() {
-        print("имя: ")
-        val name = readLine() ?: ""
-        print("возраст: ")
-        val age = readLine()?.toInt() ?: 0
-        println("Привет, ${name}! Тебе уже ${age}")
-    }
-    greeting()
+    // Задача 2
+    println(yearsEnding(12))
+    println(yearsEnding(1992))
+    println(yearsEnding(997))
 }
